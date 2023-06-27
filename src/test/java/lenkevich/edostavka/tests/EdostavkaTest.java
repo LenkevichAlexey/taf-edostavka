@@ -4,6 +4,7 @@ import lenkevich.edostavka.utils.Util;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+
 public class EdostavkaTest extends BaseTestsEdostavka {
 
     @Test
@@ -148,6 +149,19 @@ public class EdostavkaTest extends BaseTestsEdostavka {
         edostavkaStep.clickDiapersItem();
         String actualResult = homePage.getResultTextDiapersPage();
         Assertions.assertEquals("Подгузники", actualResult);
+    }
+
+    @Test
+    public void testSearchFunctionality() {
+        edostavkaStep.findItemInSearchField();
+        String actualResult = homePage.getResultTextSearchField();
+        Assertions.assertEquals("По запросу «Молоко» найдено 343 товара", actualResult);
+
+    }
+
+    @Test
+    public void testAddItemToCurt() {
+        edostavkaStep.findAndAddItemToCurt();
     }
 }
 

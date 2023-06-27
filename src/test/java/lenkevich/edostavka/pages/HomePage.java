@@ -15,6 +15,13 @@ public class HomePage {
     String veganMenuLocator = "//a[@class='links_links__a__NX2VY' and text()='Vegan']";
     String babyFoodMenuLocator = "//a[@class='links_links__a__NX2VY' and text()='Детское питание']";
     String diapersMenuLocator = "//a[@class='links_links__a__NX2VY' and text()='Подгузники']";
+    String searchFieldLocator = "//*[@id='main_search_field']/div/div/form/input";
+    String searchButtonLocator = "//*[@id='main_search_field']/div/div/form/button[1]";
+    String addItemToCurtLocator = "//*[@id='__next']/div[2]/div/div[2]/div/div[2]/div[3]/div/div[1]/div[5]/div/button";
+    String cityFieldInModalLocator = "//*[@id='input_city']";
+    String streetFieldInModalLocator = "//label[@class='inputOutlined__label' and text()='Улица']";
+    String houseFieldInModalLocator = "//label[@class='inputOutlined__label' and text()='Дом']";
+    String saveAddressButtonInModalLocator = "/html/body/div[5]/div/div[2]/div/div/div[3]/button";
 
 
     String textResultStocksPage = "//h1[@class='typography typography_tag_h1 typography_weight_700 heading_heading__text__gP6AN heading_heading__text_level_1__7_duQ' and text()='Акции']";
@@ -26,8 +33,7 @@ public class HomePage {
     String textResultVeganPage = "//h1[@class='typography typography_tag_h1 typography_weight_700 heading_heading__text__gP6AN heading_heading__text_level_1__7_duQ' and text()='Для вегетарианцев']";
     String textResultBabyFoodPage = "//h1[@class='typography typography_tag_h1 typography_weight_700 heading_heading__text__gP6AN heading_heading__text_level_1__7_duQ' and text()='Смеси, каши']";
     String textResultDiapersPage = "//h1[@class='typography typography_tag_h1 typography_weight_700 heading_heading__text__gP6AN heading_heading__text_level_1__7_duQ' and text()='Подгузники']";
-
-
+    String textResultSearchField = "//h1[@class='typography typography_tag_h1 typography_weight_600 heading_heading__text__gP6AN heading_heading__text_level_1__7_duQ' and text()='Молоко']";
 
 
     public HomePage(ChromeDriver newDriver) {
@@ -84,6 +90,46 @@ public class HomePage {
         return this;
     }
 
+    public HomePage sendKeysSearchField(String str) {
+        driver.findElement(By.xpath(searchFieldLocator)).sendKeys(str);
+        return this;
+    }
+
+    public HomePage clickSearchButton() {
+        driver.findElement(By.xpath(searchButtonLocator)).click();
+        return this;
+    }
+
+    public HomePage clickAddToCurtButton() {
+        driver.findElement(By.xpath(addItemToCurtLocator)).click();
+        return this;
+    }
+
+    public HomePage sendKeysCityFieldInModal(String str) {
+        driver.findElement(By.xpath(cityFieldInModalLocator)).sendKeys(str);
+        return this;
+    }
+
+    public HomePage sendKeysStreetFieldInModal(String str) {
+        driver.findElement(By.xpath(streetFieldInModalLocator)).sendKeys(str);
+        return this;
+    }
+
+    public HomePage sendKeysHouseFieldInModal(String str) {
+        driver.findElement(By.xpath(houseFieldInModalLocator)).sendKeys(str);
+        return this;
+    }
+
+    public HomePage clickSaveAddressButtonInModal() {
+        driver.findElement(By.xpath(saveAddressButtonInModalLocator)).click();
+        return this;
+    }
+
+
+
+
+
+
 
 
 
@@ -129,6 +175,11 @@ public class HomePage {
 
     public String getResultTextDiapersPage() {
         String resultField = driver.findElement(By.xpath(textResultDiapersPage)).getText();
+        return resultField;
+    }
+
+    public String getResultTextSearchField() {
+        String resultField = driver.findElement(By.xpath(textResultSearchField)).getText();
         return resultField;
     }
 }

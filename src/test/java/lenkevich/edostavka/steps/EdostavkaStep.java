@@ -175,4 +175,23 @@ public class EdostavkaStep {
                 .clickDiapersMenuItem();
         loginPage.clickCloseButton();
     }
+
+    public void findItemInSearchField() {
+        homePage
+                .acceptCookieButton()
+                .sendKeysSearchField("Молоко")
+                .clickSearchButton();
+    }
+
+    public void findAndAddItemToCurt() {
+        homePage
+                .acceptCookieButton()
+                .sendKeysSearchField("Молоко")
+                .clickSearchButton()
+                .clickAddToCurtButton()
+                .sendKeysCityFieldInModal("Минск")
+                .sendKeysStreetFieldInModal("Лобанка")
+                .sendKeysHouseFieldInModal("6")
+                .clickSaveAddressButtonInModal();
+    }
 }
