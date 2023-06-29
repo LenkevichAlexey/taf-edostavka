@@ -17,7 +17,7 @@ public class HomePage {
     String diapersMenuLocator = "//a[@class='links_links__a__NX2VY' and text()='Подгузники']";
     String searchFieldLocator = "//*[@id='main_search_field']/div/div/form/input";
     String searchButtonLocator = "//*[@id='main_search_field']/div/div/form/button[1]";
-    String addItemToCurtLocator = "//*[@id='__next']/div[2]/div/div[2]/div/div[2]/div[3]/div/div[1]/div[5]/div/button";
+    String addItemToCartLocator = "//*[@id='__next']/div[2]/div/div[2]/div/div[2]/div[3]/div/div[1]/div[5]/div/button";
     String cityFieldInModalLocator = "//*[@id='input_city']";
     String streetFieldInModalLocator = "//label[@class='inputOutlined__label' and text()='Улица']";
     String houseFieldInModalLocator = "//label[@class='inputOutlined__label' and text()='Дом']";
@@ -100,8 +100,8 @@ public class HomePage {
         return this;
     }
 
-    public HomePage clickAddToCurtButton() {
-        driver.findElement(By.xpath(addItemToCurtLocator)).click();
+    public HomePage clickAddToCartButton() {
+        driver.findElement(By.xpath(addItemToCartLocator)).click();
         return this;
     }
 
@@ -124,13 +124,6 @@ public class HomePage {
         driver.findElement(By.xpath(saveAddressButtonInModalLocator)).click();
         return this;
     }
-
-
-
-
-
-
-
 
 
     public String getResultTextStockPage() {

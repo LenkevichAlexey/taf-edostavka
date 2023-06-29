@@ -161,7 +161,7 @@ public class EdostavkaTest extends BaseTestsEdostavka {
 
     @Test
     public void testAddItemToCurt() {
-        edostavkaStep.findAndAddItemToCurt();
+        edostavkaStep.findAndAddItemToCart();
     }
 }
 

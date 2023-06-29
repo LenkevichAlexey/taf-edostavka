@@ -1,14 +1,15 @@
 package lenkevich.edostavka.tests;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.containsString;
 
 public class RestTest {
 
     @Test
     public void testEdostavka() {
+        String url = "https://api.static.edostavka.by/rest/Json";
         String body = "{\n" +
                 "    \"CRC\": \"\",\n" +
                 "    \"Packet\": {\n" +
@@ -26,8 +27,9 @@ public class RestTest {
                 "        }\n" +
                 "    }\n" +
                 "}";
-        given().when().body(body).post("https://api.static.edostavka.by/rest/Json").then().log().body();
-        String acrualResult = "{\"Table\":[{\"Error\":\"50009\",\"ErrorDescription\":\"Неверный логин или пароль\"}]}";
-        Assertions.assertEquals("{\"Table\":[{\"Error\":\"50009\",\"ErrorDescription\":\"Неверный логин или пароль\"}]}", acrualResult);
+        given().body(body).when().post(url).
+                then().log().body().
+                assertThat().statusCode(200).
+                assertThat().body(containsString("{\"Table\":[{\"Error\":\"50009\",\"ErrorDescription\":\"Неверный логин или пароль\"}]}"));
     }
 }

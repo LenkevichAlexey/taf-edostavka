@@ -183,12 +183,12 @@ public class EdostavkaStep {
                 .clickSearchButton();
     }
 
-    public void findAndAddItemToCurt() {
+    public void findAndAddItemToCart() {
         homePage
                 .acceptCookieButton()
                 .sendKeysSearchField("Молоко")
                 .clickSearchButton()
-                .clickAddToCurtButton()
+                .clickAddToCartButton()
                 .sendKeysCityFieldInModal("Минск")
                 .sendKeysStreetFieldInModal("Лобанка")
                 .sendKeysHouseFieldInModal("6")
