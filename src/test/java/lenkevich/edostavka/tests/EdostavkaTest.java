@@ -160,8 +160,41 @@ public class EdostavkaTest extends BaseTestsEdostavka {
     }
 
     @Test
-    public void testAddItemToCurt() {
-        edostavkaStep.findAndAddItemToCart();
+    public void testClickPlusForAddingItemToCurt() {
+        edostavkaStep.findAndClickPlusForAdddingItemToCart();
+        String actualResult = homePage.getResultTextDeliveryAddress();
+        Assertions.assertEquals("Адрес доставки", actualResult);
+    }
+
+    @Test
+    public void testExpandCatalogMenu() {
+        edostavkaStep.expandCatalogMenu();
+        String actualResult = homePage.getExpandedCatalogMenu();
+        Assertions.assertEquals("catalog_burger__blBLE catalog_burger__open__vbBg4", actualResult);
+    }
+
+    @Test
+    public void testCreateAccountUsingIncorrectPhone(){
+        edostavkaStep.createAccountUsingIncorrectPhone(Util.generatePhone());
+        String actualResult = registrationPage.getResultTextUsingIncorrectPhoneInRegistrationFlow();
+        Assertions.assertEquals("Ошибка\n" +
+                "Мобильный телефон заполнен некорректно", actualResult);
+    }
+
+    @Test
+    public void testCreateAccountUsingInvalidCharactersInNameField(){
+        edostavkaStep.createAccountUsingInvalidCharactersInNameField(Util.generatePhone());
+        String actualResult = registrationPage.getResultTextUsingInvalidCharactersInRegistrationFlow();
+        Assertions.assertEquals("Ошибка\n" +
+                "Cодержит недопустимые символы", actualResult);
+    }
+
+    @Test
+    public void testCreateAccountUsingInvalidCharactersInLastNameField(){
+        edostavkaStep.createAccountUsingInvalidCharactersInLastNameField(Util.generatePhone());
+        String actualResult = registrationPage.getResultTextUsingInvalidCharactersInRegistrationFlow();
+        Assertions.assertEquals("Ошибка\n" +
+                "Cодержит недопустимые символы", actualResult);
     }
 }
 

@@ -2,16 +2,19 @@ package lenkevich.edostavka.steps;
 
 import lenkevich.edostavka.pages.HomePage;
 import lenkevich.edostavka.pages.LoginPage;
+import lenkevich.edostavka.pages.RegistrationPage;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class EdostavkaStep {
     LoginPage loginPage;
     HomePage homePage;
+    RegistrationPage registrationPage;
 
     public EdostavkaStep(ChromeDriver driver) {
 
         loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
+        registrationPage = new RegistrationPage(driver);
     }
 
     public void phoneInputFieldPlaceholderText() {
@@ -183,15 +186,77 @@ public class EdostavkaStep {
                 .clickSearchButton();
     }
 
-    public void findAndAddItemToCart() {
+    public void findAndClickPlusForAdddingItemToCart() {
         homePage
                 .acceptCookieButton()
                 .sendKeysSearchField("Молоко")
                 .clickSearchButton()
-                .clickAddToCartButton()
-                .sendKeysCityFieldInModal("Минск")
-                .sendKeysStreetFieldInModal("Лобанка")
-                .sendKeysHouseFieldInModal("6")
-                .clickSaveAddressButtonInModal();
+                .clickAddToCartButton();
+    }
+
+    public void expandCatalogMenu(){
+        homePage
+                .acceptCookieButton()
+                .clickCatalogMenuItem();
+    }
+
+    public void createAccountUsingIncorrectPhone(String phone){
+        homePage.acceptCookieButton();
+        loginPage
+                .clickLoginButton()
+                .clickCreateAccountButton();
+        registrationPage
+                .clickRegistrationOnlyOnEdostavkaButton()
+                .clickCheckBox()
+                .clickSecondCheckBox()
+                .clickSubmitButton()
+                .clickContinueRegistrationButton()
+                .sendKeysFirsNameField("Василий")
+                .sendKeysLastNameField("Иванов")
+                .sendKeysEmailField("test@test.com")
+                .sendKeysPhoneField(phone)
+                .sendKeysPasswordField("Qwerty1!")
+                .sendKeysConfirmPasswordField("Qwerty1!")
+                .clickCreateAccountButton();
+    }
+
+    public void createAccountUsingInvalidCharactersInNameField(String phone){
+        homePage.acceptCookieButton();
+        loginPage
+                .clickLoginButton()
+                .clickCreateAccountButton();
+        registrationPage
+                .clickRegistrationOnlyOnEdostavkaButton()
+                .clickCheckBox()
+                .clickSecondCheckBox()
+                .clickSubmitButton()
+                .clickContinueRegistrationButton()
+                .sendKeysFirsNameField("Qwert!")
+                .sendKeysLastNameField("Иванов")
+                .sendKeysEmailField("test@test.com")
+                .sendKeysPhoneField(phone)
+                .sendKeysPasswordField("Qwerty1!")
+                .sendKeysConfirmPasswordField("Qwerty1!")
+                .clickCreateAccountButton();
+    }
+
+    public void createAccountUsingInvalidCharactersInLastNameField(String phone){
+        homePage.acceptCookieButton();
+        loginPage
+                .clickLoginButton()
+                .clickCreateAccountButton();
+        registrationPage
+                .clickRegistrationOnlyOnEdostavkaButton()
+                .clickCheckBox()
+                .clickSecondCheckBox()
+                .clickSubmitButton()
+                .clickContinueRegistrationButton()
+                .sendKeysFirsNameField("Василий")
+                .sendKeysLastNameField("@2123QВ")
+                .sendKeysEmailField("test@test.com")
+                .sendKeysPhoneField(phone)
+                .sendKeysPasswordField("Qwerty1!")
+                .sendKeysConfirmPasswordField("Qwerty1!")
+                .clickCreateAccountButton();
     }
 }

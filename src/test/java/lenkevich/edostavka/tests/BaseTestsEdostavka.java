@@ -1,5 +1,6 @@
 package lenkevich.edostavka.tests;
 
+import lenkevich.edostavka.pages.RegistrationPage;
 import lenkevich.edostavka.steps.EdostavkaStep;
 import lenkevich.edostavka.pages.HomePage;
 import lenkevich.edostavka.pages.LoginPage;
@@ -14,6 +15,7 @@ public class BaseTestsEdostavka {
     LoginPage loginPage;
     HomePage homePage;
     EdostavkaStep edostavkaStep;
+    RegistrationPage registrationPage;
 
     @BeforeEach
     public void warmUp() {
@@ -23,6 +25,7 @@ public class BaseTestsEdostavka {
         loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
         edostavkaStep = new EdostavkaStep(driver);
+        registrationPage = new RegistrationPage(driver);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 

@@ -20,7 +20,7 @@ public class LoginPage {
     String lastNameFieldLocator = "//*[@id='__next']/div[2]/div/div[1]/div[2]/div/div[1]/div[3]/div[2]/div/div/input";
     String phoneFieldInForgotPasswordPageLocator = "//*[@id='__next']/div[2]/div/div[1]/div[2]/div/div[1]/div[3]/div[1]/div/input";
     String getCodeButtonInForgotPasswordPageLocator = "//*[@id='__next']/div[2]/div/div[1]/div[2]/div/div[2]/button[1]";
-
+    String createAccountButtonLocator = "//*[@id='__next']/div[2]/div/div[1]/div[2]/div/div[2]/div[3]/a";
 
     String textPhoneInputLocator = "//*[@id='__next']/div[2]/div/div[1]/div[2]/div/div[1]/div[2]/div[1]/div/input";
     String textPasswordInputLocator = "//*[@id='__next']/div[2]/div/div[1]/div[2]/div/div[1]/div[2]/div[2]/div/div/label";
@@ -99,6 +99,13 @@ public class LoginPage {
         driver.findElement(By.xpath(getCodeButtonInForgotPasswordPageLocator)).click();
         return this;
     }
+
+    public LoginPage clickCreateAccountButton() {
+        driver.findElement(By.xpath(createAccountButtonLocator)).click();
+        return this;
+    }
+
+
 
 
     public String getPhoneInputFieldPlaceholderText() {

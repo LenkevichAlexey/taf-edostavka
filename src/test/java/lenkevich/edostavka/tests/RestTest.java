@@ -8,7 +8,7 @@ import static org.hamcrest.Matchers.containsString;
 public class RestTest {
 
     @Test
-    public void testEdostavka() {
+    public void testInvalidCreds() {
         String url = "https://api.static.edostavka.by/rest/Json";
         String body = "{\n" +
                 "    \"CRC\": \"\",\n" +
@@ -27,9 +27,22 @@ public class RestTest {
                 "        }\n" +
                 "    }\n" +
                 "}";
-        given().body(body).when().post(url).
-                then().log().body().
+        given().body(body).when().post(url).then().log().body().
                 assertThat().statusCode(200).
                 assertThat().body(containsString("{\"Table\":[{\"Error\":\"50009\",\"ErrorDescription\":\"Неверный логин или пароль\"}]}"));
+    }
+
+    @Test
+    public void testGet() {
+        given().when().get("curl 'https://edostavka.by/_next/data/mYdj7E2lOuK30NUnBBMmY/search.json?query=milk' \\\n" +
+                        "  -H 'sec-ch-ua: \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"' \\\n" +
+                        "  -H 'x-nextjs-data: 1' \\\n" +
+                        "  -H 'Referer: https://edostavka.by/search?query=milk' \\\n" +
+                        "  -H 'sec-ch-ua-mobile: ?1' \\\n" +
+                        "  -H 'User-Agent: Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Mobile Safari/537.36' \\\n" +
+                        "  -H 'sec-ch-ua-platform: \"Android\"' \\\n" +
+                        "  --compressed").
+                then().log().body().
+                assertThat().statusCode(200).assertThat();
     }
 }

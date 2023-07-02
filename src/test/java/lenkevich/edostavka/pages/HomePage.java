@@ -1,6 +1,7 @@
 package lenkevich.edostavka.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class HomePage {
@@ -18,10 +19,7 @@ public class HomePage {
     String searchFieldLocator = "//*[@id='main_search_field']/div/div/form/input";
     String searchButtonLocator = "//*[@id='main_search_field']/div/div/form/button[1]";
     String addItemToCartLocator = "//*[@id='__next']/div[2]/div/div[2]/div/div[2]/div[3]/div/div[1]/div[5]/div/button";
-    String cityFieldInModalLocator = "//*[@id='input_city']";
-    String streetFieldInModalLocator = "//label[@class='inputOutlined__label' and text()='Улица']";
-    String houseFieldInModalLocator = "//label[@class='inputOutlined__label' and text()='Дом']";
-    String saveAddressButtonInModalLocator = "/html/body/div[5]/div/div[2]/div/div/div[3]/button";
+    String catalogItemLocator = "//*[@id='header__inner']/div[1]/div[2]/div[1]/div[1]/button";
 
 
     String textResultStocksPage = "//h1[@class='typography typography_tag_h1 typography_weight_700 heading_heading__text__gP6AN heading_heading__text_level_1__7_duQ' and text()='Акции']";
@@ -34,7 +32,8 @@ public class HomePage {
     String textResultBabyFoodPage = "//h1[@class='typography typography_tag_h1 typography_weight_700 heading_heading__text__gP6AN heading_heading__text_level_1__7_duQ' and text()='Смеси, каши']";
     String textResultDiapersPage = "//h1[@class='typography typography_tag_h1 typography_weight_700 heading_heading__text__gP6AN heading_heading__text_level_1__7_duQ' and text()='Подгузники']";
     String textResultSearchField = "//h1[@class='typography typography_tag_h1 typography_weight_600 heading_heading__text__gP6AN heading_heading__text_level_1__7_duQ' and text()='Молоко']";
-
+    String textResultDeliveryAddress = "/html/body/div[5]/div/div[2]/div/div/div[1]/span";
+    String expandedCatalogMenu = "//*[@id='nav-icon6']";
 
     public HomePage(ChromeDriver newDriver) {
         driver = newDriver;
@@ -105,25 +104,13 @@ public class HomePage {
         return this;
     }
 
-    public HomePage sendKeysCityFieldInModal(String str) {
-        driver.findElement(By.xpath(cityFieldInModalLocator)).sendKeys(str);
+    public HomePage clickCatalogMenuItem() {
+        driver.findElement(By.xpath(catalogItemLocator)).click();
         return this;
     }
 
-    public HomePage sendKeysStreetFieldInModal(String str) {
-        driver.findElement(By.xpath(streetFieldInModalLocator)).sendKeys(str);
-        return this;
-    }
 
-    public HomePage sendKeysHouseFieldInModal(String str) {
-        driver.findElement(By.xpath(houseFieldInModalLocator)).sendKeys(str);
-        return this;
-    }
 
-    public HomePage clickSaveAddressButtonInModal() {
-        driver.findElement(By.xpath(saveAddressButtonInModalLocator)).click();
-        return this;
-    }
 
 
     public String getResultTextStockPage() {
@@ -174,5 +161,15 @@ public class HomePage {
     public String getResultTextSearchField() {
         String resultField = driver.findElement(By.xpath(textResultSearchField)).getText();
         return resultField;
+    }
+
+    public String getResultTextDeliveryAddress() {
+        String resultField = driver.findElement(By.xpath(textResultDeliveryAddress)).getText();
+        return resultField;
+    }
+
+    public String getExpandedCatalogMenu() {
+        WebElement expandedCatalog = driver.findElement(By.xpath(expandedCatalogMenu));
+        return expandedCatalog.getAttribute("class");
     }
 }
