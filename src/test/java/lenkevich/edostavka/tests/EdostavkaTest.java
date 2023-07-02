@@ -174,7 +174,7 @@ public class EdostavkaTest extends BaseTestsEdostavka {
     }
 
     @Test
-    public void testCreateAccountUsingIncorrectPhone(){
+    public void testCreateAccountUsingIncorrectPhone() {
         edostavkaStep.createAccountUsingIncorrectPhone(Util.generatePhone());
         String actualResult = registrationPage.getResultTextUsingIncorrectPhoneInRegistrationFlow();
         Assertions.assertEquals("Ошибка\n" +
@@ -182,7 +182,7 @@ public class EdostavkaTest extends BaseTestsEdostavka {
     }
 
     @Test
-    public void testCreateAccountUsingInvalidCharactersInNameField(){
+    public void testCreateAccountUsingInvalidCharactersInNameField() {
         edostavkaStep.createAccountUsingInvalidCharactersInNameField(Util.generatePhone());
         String actualResult = registrationPage.getResultTextUsingInvalidCharactersInRegistrationFlow();
         Assertions.assertEquals("Ошибка\n" +
@@ -190,11 +190,46 @@ public class EdostavkaTest extends BaseTestsEdostavka {
     }
 
     @Test
-    public void testCreateAccountUsingInvalidCharactersInLastNameField(){
+    public void testCreateAccountUsingInvalidCharactersInLastNameField() {
         edostavkaStep.createAccountUsingInvalidCharactersInLastNameField(Util.generatePhone());
         String actualResult = registrationPage.getResultTextUsingInvalidCharactersInRegistrationFlow();
         Assertions.assertEquals("Ошибка\n" +
                 "Cодержит недопустимые символы", actualResult);
+    }
+
+    @Test
+    public void testDisabledCreateAccountButtonWhenNameFieldEmpty() {
+        edostavkaStep.createAccountUsingEmptyNameField(Util.generatePhone());
+        String actualResult = registrationPage.confirmDisabledCreateAccountButton();
+        Assertions.assertEquals("true", actualResult);
+    }
+
+    @Test
+    public void testDisabledCreateAccountButtonWhenLastNameFieldEmpty() {
+        edostavkaStep.createAccountUsingEmptyLastNameField(Util.generatePhone());
+        String actualResult = registrationPage.confirmDisabledCreateAccountButton();
+        Assertions.assertEquals("true", actualResult);
+    }
+
+    @Test
+    public void testDisabledCreateAccountButtonWhenPhoneFieldEmpty() {
+        edostavkaStep.createAccountUsingEmptyPhoneField();
+        String actualResult = registrationPage.confirmDisabledCreateAccountButton();
+        Assertions.assertEquals("true", actualResult);
+    }
+
+    @Test
+    public void testDisabledCreateAccountButtonWhenPasswordFieldEmpty() {
+        edostavkaStep.createAccountUsingEmptyPasswordField(Util.generatePhone());
+        String actualResult = registrationPage.confirmDisabledCreateAccountButton();
+        Assertions.assertEquals("true", actualResult);
+    }
+
+    @Test
+    public void testDisabledCreateAccountButtonWhenRepeatPasswordFieldEmpty() {
+        edostavkaStep.createAccountUsingEmptyRepeatPasswordField(Util.generatePhone());
+        String actualResult = registrationPage.confirmDisabledCreateAccountButton();
+        Assertions.assertEquals("true", actualResult);
     }
 }
 

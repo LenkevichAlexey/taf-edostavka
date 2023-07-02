@@ -112,7 +112,6 @@ public class HomePage {
 
 
 
-
     public String getResultTextStockPage() {
         String resultField = driver.findElement(By.xpath(textResultStocksPage)).getText();
         return resultField;

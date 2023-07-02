@@ -108,6 +108,7 @@ public class LoginPage {
 
 
 
+
     public String getPhoneInputFieldPlaceholderText() {
         WebElement phoneInputField = driver.findElement(By.xpath(textPhoneInputLocator));
         return phoneInputField.getAttribute("placeholder");

@@ -194,13 +194,13 @@ public class EdostavkaStep {
                 .clickAddToCartButton();
     }
 
-    public void expandCatalogMenu(){
+    public void expandCatalogMenu() {
         homePage
                 .acceptCookieButton()
                 .clickCatalogMenuItem();
     }
 
-    public void createAccountUsingIncorrectPhone(String phone){
+    public void createAccountUsingIncorrectPhone(String phone) {
         homePage.acceptCookieButton();
         loginPage
                 .clickLoginButton()
@@ -220,7 +220,7 @@ public class EdostavkaStep {
                 .clickCreateAccountButton();
     }
 
-    public void createAccountUsingInvalidCharactersInNameField(String phone){
+    public void createAccountUsingInvalidCharactersInNameField(String phone) {
         homePage.acceptCookieButton();
         loginPage
                 .clickLoginButton()
@@ -240,7 +240,7 @@ public class EdostavkaStep {
                 .clickCreateAccountButton();
     }
 
-    public void createAccountUsingInvalidCharactersInLastNameField(String phone){
+    public void createAccountUsingInvalidCharactersInLastNameField(String phone) {
         homePage.acceptCookieButton();
         loginPage
                 .clickLoginButton()
@@ -258,5 +258,95 @@ public class EdostavkaStep {
                 .sendKeysPasswordField("Qwerty1!")
                 .sendKeysConfirmPasswordField("Qwerty1!")
                 .clickCreateAccountButton();
+    }
+
+    public void createAccountUsingEmptyNameField(String phone) {
+        homePage.acceptCookieButton();
+        loginPage
+                .clickLoginButton()
+                .clickCreateAccountButton();
+        registrationPage
+                .clickRegistrationOnlyOnEdostavkaButton()
+                .clickCheckBox()
+                .clickSecondCheckBox()
+                .clickSubmitButton()
+                .clickContinueRegistrationButton()
+                .sendKeysLastNameField("Иванов")
+                .sendKeysEmailField("test@test.com")
+                .sendKeysPhoneField(phone)
+                .sendKeysPasswordField("Qwerty1!")
+                .sendKeysConfirmPasswordField("Qwerty1!");
+    }
+
+    public void createAccountUsingEmptyLastNameField(String phone) {
+        homePage.acceptCookieButton();
+        loginPage
+                .clickLoginButton()
+                .clickCreateAccountButton();
+        registrationPage
+                .clickRegistrationOnlyOnEdostavkaButton()
+                .clickCheckBox()
+                .clickSecondCheckBox()
+                .clickSubmitButton()
+                .clickContinueRegistrationButton()
+                .sendKeysFirsNameField("Василий")
+                .sendKeysEmailField("test@test.com")
+                .sendKeysPhoneField(phone)
+                .sendKeysPasswordField("Qwerty1!")
+                .sendKeysConfirmPasswordField("Qwerty1!");
+    }
+
+    public void createAccountUsingEmptyPhoneField() {
+        homePage.acceptCookieButton();
+        loginPage
+                .clickLoginButton()
+                .clickCreateAccountButton();
+        registrationPage
+                .clickRegistrationOnlyOnEdostavkaButton()
+                .clickCheckBox()
+                .clickSecondCheckBox()
+                .clickSubmitButton()
+                .clickContinueRegistrationButton()
+                .sendKeysFirsNameField("Василий")
+                .sendKeysLastNameField("Иванов")
+                .sendKeysEmailField("test@test.com")
+                .sendKeysPasswordField("Qwerty1!")
+                .sendKeysConfirmPasswordField("Qwerty1!");
+    }
+
+    public void createAccountUsingEmptyPasswordField(String phone) {
+        homePage.acceptCookieButton();
+        loginPage
+                .clickLoginButton()
+                .clickCreateAccountButton();
+        registrationPage
+                .clickRegistrationOnlyOnEdostavkaButton()
+                .clickCheckBox()
+                .clickSecondCheckBox()
+                .clickSubmitButton()
+                .clickContinueRegistrationButton()
+                .sendKeysFirsNameField("Василий")
+                .sendKeysLastNameField("Иванов")
+                .sendKeysEmailField("test@test.com")
+                .sendKeysPhoneField(phone)
+                .sendKeysConfirmPasswordField("Qwerty1!");
+    }
+
+    public void createAccountUsingEmptyRepeatPasswordField(String phone) {
+        homePage.acceptCookieButton();
+        loginPage
+                .clickLoginButton()
+                .clickCreateAccountButton();
+        registrationPage
+                .clickRegistrationOnlyOnEdostavkaButton()
+                .clickCheckBox()
+                .clickSecondCheckBox()
+                .clickSubmitButton()
+                .clickContinueRegistrationButton()
+                .sendKeysFirsNameField("Василий")
+                .sendKeysLastNameField("Иванов")
+                .sendKeysEmailField("test@test.com")
+                .sendKeysPhoneField(phone)
+                .sendKeysPasswordField("Qwerty1!");
     }
 }
