@@ -160,10 +160,17 @@ public class EdostavkaTest extends BaseTestsEdostavka {
     }
 
     @Test
-    public void testAddingItemToCurt() {
-        edostavkaStep.findAndClickPlusForAdddingItemToCart();
+    public void testAddingItemToCart() {
+        edostavkaStep.findAndClickPlusForAddingItemToCart();
         String actualResult = homePage.getResultTextMilkInCart();
         Assertions.assertEquals("Молоко «#Можно» без\u00ADлак\u00ADтоз\u00ADное, 3.2% 930 мл", actualResult);
+    }
+
+    @Test
+    public void testAddingItemToCartViaPlus() {
+        edostavkaStep.addItemToCartAndMultiply();
+        String actualResult = homePage.getResultTextAddMilkUsingPlusInCart();
+        Assertions.assertEquals("2,43 р. за шт", actualResult);
     }
 
     @Test

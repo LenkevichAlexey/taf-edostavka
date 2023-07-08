@@ -28,6 +28,7 @@ public class HomePage {
     String saveAddressButtonInModalLocator = "/html/body/div[5]/div/div[2]/div/div/div[3]/button";
     String sideCartMenuLocator = "//*[@id='__next']/div[3]/div[1]/div/ul";
     String cartMenuIconLocator = "//*[@id='__next']/div[3]/div[2]/section/div[2]/button";
+    String plusButtonInCartLocator = "//*[@id='__next']/div[3]/div[2]/section/div[1]/div[2]/div/div[1]/div[2]/div/div/div/ul/li/div/div/div/span/div/div/button[2]";
 
     String textResultStocksPage = "//h1[@class='typography typography_tag_h1 typography_weight_700 heading_heading__text__gP6AN heading_heading__text_level_1__7_duQ' and text()='Акции']";
     String textResultProductsPage = "//h1[@class='typography typography_tag_h1 typography_weight_700 heading_heading__text__gP6AN heading_heading__text_level_1__7_duQ' and text()='Товары удачи. Тур 181']";
@@ -42,6 +43,7 @@ public class HomePage {
     String textResultDeliveryAddress = "/html/body/div[5]/div/div[2]/div/div/div[1]/span";
     String expandedCatalogMenu = "//*[@id='nav-icon6']";
     String textResultAddMilkToCart = "//a[@class='product_name__Ogv_q' and text()='Молоко «#Можно» без\u00ADлак\u00ADтоз\u00ADное, 3.2%']";
+    String textResultAddItemViaPlus = "//*[@id='__next']/div[3]/div[2]/section/div[1]/div[2]/div/div[1]/div[2]/div/div/div/ul/li/div/div/div[2]/span/div/span";
 
     public HomePage(ChromeDriver newDriver) {
         driver = newDriver;
@@ -152,6 +154,11 @@ public class HomePage {
         return this;
     }
 
+    public HomePage clickPlusButtonInCart() {
+        driver.findElement(By.xpath(plusButtonInCartLocator)).click();
+        return this;
+    }
+
     public HomePage clickCatalogMenuItem() {
         driver.findElement(By.xpath(catalogItemLocator)).click();
         return this;
@@ -222,6 +229,11 @@ public class HomePage {
 
     public String getResultTextMilkInCart() {
         String resultField = driver.findElement(By.xpath(textResultAddMilkToCart)).getText();
+        return resultField;
+    }
+
+    public String getResultTextAddMilkUsingPlusInCart() {
+        String resultField = driver.findElement(By.xpath(textResultAddItemViaPlus)).getText();
         return resultField;
     }
 }

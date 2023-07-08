@@ -100,7 +100,7 @@ public class RestTest {
     }
 
     @Test
-    public void testGetMilk() {
+    public void testGetCoffeeMilk() {
         String expected = "Кофе в зернах «Romeo Rossi» Premium Coffee, 1 кг";
         HashMap<String, String> queryParams = new HashMap<>();
         queryParams.put("query", "milk coffee");

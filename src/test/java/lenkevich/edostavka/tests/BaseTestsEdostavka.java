@@ -29,8 +29,8 @@ public class BaseTestsEdostavka {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
-  @AfterEach
+  /*@AfterEach
     public void tearsDown() {
         driver.quit();
-    }
+    }*/
 }

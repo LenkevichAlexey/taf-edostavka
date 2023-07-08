@@ -166,7 +166,7 @@ public class EdostavkaStep {
                 .clickSearchButton();
     }
 
-    public void findAndClickPlusForAdddingItemToCart() {
+    public void findAndClickPlusForAddingItemToCart() {
         homePage
                 .acceptCookieButton()
                 .sendKeysSearchField("Молоко")
@@ -180,6 +180,22 @@ public class EdostavkaStep {
                 .clickSaveAddressButtonInModal()
                 .clickSideCartMenu()
                 .clickCartMenuIcon();
+    }
+
+    public void addItemToCartAndMultiply() {
+        homePage
+                .acceptCookieButton()
+                .sendKeysSearchField("Молоко")
+                .clickSearchButton()
+                .clickAddToCartButton()
+                .sendKeysCityFieldInModal("г. Минск ")
+                .clickConfirmCityInModal()
+                .sendKeysStreetFieldInModal("3 Сентября")
+                .clickConfirmStreetInModal()
+                .sendKeysHouseFieldInModal("12")
+                .clickSaveAddressButtonInModal()
+                .clickSideCartMenu()
+                .clickPlusButtonInCart();
     }
 
     public void expandCatalogMenu() {
