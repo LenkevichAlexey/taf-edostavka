@@ -99,7 +99,7 @@ public class EdostavkaTest extends BaseTestsEdostavka {
     public void testClickProductsMenuItem() {
         edostavkaStep.clickProductsMenuItem();
         String actualResult = homePage.getResultTextProductsPage();
-        Assertions.assertEquals("Товары удачи. Тур 180", actualResult);
+        Assertions.assertEquals("Товары удачи. Тур 181", actualResult);
     }
 
     @Test
@@ -155,15 +155,15 @@ public class EdostavkaTest extends BaseTestsEdostavka {
     public void testSearchFunctionality() {
         edostavkaStep.findItemInSearchField();
         String actualResult = homePage.getResultTextSearchField();
-        Assertions.assertEquals("По запросу «Молоко» найдено 343 товара", actualResult);
+        Assertions.assertEquals("По запросу «Молоко» найдено 429 товаров", actualResult);
 
     }
 
     @Test
-    public void testClickPlusForAddingItemToCurt() {
+    public void testAddingItemToCurt() {
         edostavkaStep.findAndClickPlusForAdddingItemToCart();
-        String actualResult = homePage.getResultTextDeliveryAddress();
-        Assertions.assertEquals("Адрес доставки", actualResult);
+        String actualResult = homePage.getResultTextMilkInCart();
+        Assertions.assertEquals("Молоко «#Можно» без\u00ADлак\u00ADтоз\u00ADное, 3.2% 930 мл", actualResult);
     }
 
     @Test

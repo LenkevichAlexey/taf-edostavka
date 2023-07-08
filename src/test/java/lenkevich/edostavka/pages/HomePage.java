@@ -20,10 +20,17 @@ public class HomePage {
     String searchButtonLocator = "//*[@id='main_search_field']/div/div/form/button[1]";
     String addItemToCartLocator = "//*[@id='__next']/div[2]/div/div[2]/div/div[2]/div[3]/div/div[1]/div[5]/div/button";
     String catalogItemLocator = "//*[@id='header__inner']/div[1]/div[2]/div[1]/div[1]/button";
-
+    String cityFieldInModalLocator = "//input[@id='input_city' and following-sibling::label[text()='Населенный  пункт']]";
+    String confirmCityFieldInModalLocator = "//button[@id='0-simple-bar' and text()='г. Минск']";
+    String streetFieldInModalLocator = "//input[@id='input_city' and following-sibling::label[text()='Улица']]";
+    String confirmStreetFieldInModalLocator = "//button[@id='0-simple-bar' and text()='3 Сентября']";
+    String houseFieldInModalLocator = "//input[@autocomplete='new-password' and following-sibling::label[text()='Дом']]";
+    String saveAddressButtonInModalLocator = "/html/body/div[5]/div/div[2]/div/div/div[3]/button";
+    String sideCartMenuLocator = "//*[@id='__next']/div[3]/div[1]/div/ul";
+    String cartMenuIconLocator = "//*[@id='__next']/div[3]/div[2]/section/div[2]/button";
 
     String textResultStocksPage = "//h1[@class='typography typography_tag_h1 typography_weight_700 heading_heading__text__gP6AN heading_heading__text_level_1__7_duQ' and text()='Акции']";
-    String textResultProductsPage = "//h1[@class='typography typography_tag_h1 typography_weight_700 heading_heading__text__gP6AN heading_heading__text_level_1__7_duQ' and text()='Товары удачи. Тур 180']";
+    String textResultProductsPage = "//h1[@class='typography typography_tag_h1 typography_weight_700 heading_heading__text__gP6AN heading_heading__text_level_1__7_duQ' and text()='Товары удачи. Тур 181']";
     String textResultRecipesPage = "//h1[@class='typography typography_tag_h1 typography_weight_700 heading_heading__text__gP6AN heading_heading__text_level_1__7_duQ' and text()='Рецепты']";
     String textResultFruitPage = "//h1[@class='typography typography_tag_h1 typography_weight_700 heading_heading__text__gP6AN heading_heading__text_level_1__7_duQ' and text()='Фрукты']";
     String textResultCheesePage = "//h1[@class='typography typography_tag_h1 typography_weight_700 heading_heading__text__gP6AN heading_heading__text_level_1__7_duQ' and text()='Сыры']";
@@ -34,6 +41,7 @@ public class HomePage {
     String textResultSearchField = "//h1[@class='typography typography_tag_h1 typography_weight_600 heading_heading__text__gP6AN heading_heading__text_level_1__7_duQ' and text()='Молоко']";
     String textResultDeliveryAddress = "/html/body/div[5]/div/div[2]/div/div/div[1]/span";
     String expandedCatalogMenu = "//*[@id='nav-icon6']";
+    String textResultAddMilkToCart = "//a[@class='product_name__Ogv_q' and text()='Молоко «#Можно» без\u00ADлак\u00ADтоз\u00ADное, 3.2%']";
 
     public HomePage(ChromeDriver newDriver) {
         driver = newDriver;
@@ -104,6 +112,46 @@ public class HomePage {
         return this;
     }
 
+    public HomePage sendKeysCityFieldInModal(String str) {
+        driver.findElement(By.xpath(cityFieldInModalLocator)).sendKeys(str);
+        return this;
+    }
+
+    public HomePage clickConfirmCityInModal() {
+        driver.findElement(By.xpath(confirmCityFieldInModalLocator)).click();
+        return this;
+    }
+
+    public HomePage sendKeysStreetFieldInModal(String str) {
+        driver.findElement(By.xpath(streetFieldInModalLocator)).sendKeys(str);
+        return this;
+    }
+
+    public HomePage clickConfirmStreetInModal() {
+        driver.findElement(By.xpath(confirmStreetFieldInModalLocator)).click();
+        return this;
+    }
+
+    public HomePage sendKeysHouseFieldInModal(String str) {
+        driver.findElement(By.xpath(houseFieldInModalLocator)).sendKeys(str);
+        return this;
+    }
+
+    public HomePage clickSaveAddressButtonInModal() {
+        driver.findElement(By.xpath(saveAddressButtonInModalLocator)).click();
+        return this;
+    }
+
+    public HomePage clickSideCartMenu() {
+        driver.findElement(By.xpath(sideCartMenuLocator)).click();
+        return this;
+    }
+
+    public HomePage clickCartMenuIcon() {
+        driver.findElement(By.xpath(cartMenuIconLocator)).click();
+        return this;
+    }
+
     public HomePage clickCatalogMenuItem() {
         driver.findElement(By.xpath(catalogItemLocator)).click();
         return this;
@@ -170,5 +218,10 @@ public class HomePage {
     public String getExpandedCatalogMenu() {
         WebElement expandedCatalog = driver.findElement(By.xpath(expandedCatalogMenu));
         return expandedCatalog.getAttribute("class");
+    }
+
+    public String getResultTextMilkInCart() {
+        String resultField = driver.findElement(By.xpath(textResultAddMilkToCart)).getText();
+        return resultField;
     }
 }

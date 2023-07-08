@@ -20,24 +20,21 @@ public class EdostavkaStep {
     public void phoneInputFieldPlaceholderText() {
         homePage.acceptCookieButton();
         loginPage
-                .clickLoginButton()
-                .clickCloseButton();
+                .clickLoginButton();
     }
 
     public void passwordInputFieldPlaceholderText() {
         homePage.acceptCookieButton();
         loginPage
                 .clickLoginButton()
-                .clickLoginWithPasswordField()
-                .clickCloseButton();
+                .clickLoginWithPasswordField();
     }
 
     public void emptyPhoneField() {
         homePage.acceptCookieButton();
         loginPage
                 .clickLoginButton()
-                .clickGetCodeButton()
-                .clickCloseButton();
+                .clickGetCodeButton();
     }
 
     public void fillIncorrectPhoneAndPassword(String phone, String password) {
@@ -47,8 +44,7 @@ public class EdostavkaStep {
                 .sendKeysInputPhoneField(phone)
                 .clickLoginWithPasswordField()
                 .sendKeysInputPasswordField(password)
-                .clickSubmitButton()
-                .clickCloseButton();
+                .clickSubmitButton();
     }
 
     public void fillCorrectPhoneAndEmptyPassword(String phone) {
@@ -57,8 +53,7 @@ public class EdostavkaStep {
                 .clickLoginButton()
                 .sendKeysInputPhoneField(phone)
                 .clickLoginWithPasswordField()
-                .clickSubmitButton()
-                .clickCloseButton();
+                .clickSubmitButton();
     }
 
     public void fillCorrectPasswordAndEmptyPhone(String password) {
@@ -67,8 +62,7 @@ public class EdostavkaStep {
                 .clickLoginButton()
                 .clickLoginWithPasswordField()
                 .sendKeysInputPasswordField(password)
-                .clickSubmitButton()
-                .clickCloseButton();
+                .clickSubmitButton();
     }
 
     public void clickEyeIconToShowPassword(String phone, String password) {
@@ -78,8 +72,7 @@ public class EdostavkaStep {
                 .sendKeysInputPhoneField(phone)
                 .clickLoginWithPasswordField()
                 .sendKeysInputPasswordField(password)
-                .clickEyeIconToShowPassword()
-                .clickCloseButton();
+                .clickEyeIconToShowPassword();
     }
 
     public void clickEyeIconToHidePassword(String phone, String password) {
@@ -90,8 +83,7 @@ public class EdostavkaStep {
                 .clickLoginWithPasswordField()
                 .sendKeysInputPasswordField(password)
                 .clickEyeIconToShowPassword()
-                .clickEyeIconToHidePassword()
-                .clickCloseButton();
+                .clickEyeIconToHidePassword();
     }
 
     public void logInWithGetCodeButton(String phone) {
@@ -99,8 +91,7 @@ public class EdostavkaStep {
         loginPage
                 .clickLoginButton()
                 .sendKeysInputPhoneField(phone)
-                .clickGetCodeButton()
-                .clickCloseButton();
+                .clickGetCodeButton();
     }
 
     public void forgotPasswordButton(String phone, String lastName) {
@@ -111,72 +102,61 @@ public class EdostavkaStep {
                 .clickForgotPasswordButton()
                 .sendKeysPhoneFieldForgotPasswordPage(phone)
                 .sendKeysLastNameField(lastName)
-                .clickGetCodeButtonForgotPasswordPage()
-                .clickCloseButton();
+                .clickGetCodeButtonForgotPasswordPage();
     }
 
     public void clickStocksMenuItem() {
         homePage
                 .acceptCookieButton()
                 .clickStocksMenuItem();
-
-        loginPage.clickCloseButton();
     }
 
     public void clickProductsMenuItem() {
         homePage
                 .acceptCookieButton()
                 .clickGoodLuckProductsMenuItem();
-        loginPage.clickCloseButton();
     }
 
     public void clickRecipesMenuItem() {
         homePage
                 .acceptCookieButton()
                 .clickRecipesMenuItem();
-        loginPage.clickCloseButton();
     }
 
     public void clickFruitMenuItem() {
         homePage
                 .acceptCookieButton()
                 .clickFruitMenuItem();
-        loginPage.clickCloseButton();
     }
 
     public void clickCheeseMenuItem() {
         homePage
                 .acceptCookieButton()
                 .clickCheeseMenuItem();
-        loginPage.clickCloseButton();
     }
 
     public void clickMeatsMenuItem() {
         homePage
                 .acceptCookieButton()
                 .clickFarmMeatsMenuItem();
-        loginPage.clickCloseButton();
     }
 
     public void clickVeganMenuItem() {
         homePage
                 .acceptCookieButton()
                 .clickVeganMenuItem();
-        loginPage.clickCloseButton();
     }
 
     public void clickBabyFoodMenuItem() {
         homePage
                 .acceptCookieButton()
                 .clickBabyFoodMenuItem();
-        loginPage.clickCloseButton();
     }
 
     public void clickDiapersItem() {
         homePage
                 .acceptCookieButton()
                 .clickDiapersMenuItem();
-        loginPage.clickCloseButton();
     }
 
     public void findItemInSearchField() {
@@ -191,7 +171,15 @@ public class EdostavkaStep {
                 .acceptCookieButton()
                 .sendKeysSearchField("Молоко")
                 .clickSearchButton()
-                .clickAddToCartButton();
+                .clickAddToCartButton()
+                .sendKeysCityFieldInModal("г. Минск ")
+                .clickConfirmCityInModal()
+                .sendKeysStreetFieldInModal("3 Сентября")
+                .clickConfirmStreetInModal()
+                .sendKeysHouseFieldInModal("12")
+                .clickSaveAddressButtonInModal()
+                .clickSideCartMenu()
+                .clickCartMenuIcon();
     }
 
     public void expandCatalogMenu() {
