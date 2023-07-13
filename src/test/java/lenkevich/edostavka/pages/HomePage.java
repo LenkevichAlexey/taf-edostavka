@@ -45,8 +45,8 @@ public class HomePage {
     String textResultAddMilkToCart = "//a[@class='product_name__Ogv_q' and text()='Молоко «#Можно» без\u00ADлак\u00ADтоз\u00ADное, 3.2%']";
     String textResultAddItemViaPlus = "//*[@id='__next']/div[3]/div[2]/section/div[1]/div[2]/div/div[1]/div[2]/div/div/div/ul/li/div/div/div[2]/span/div/span";
 
-    public HomePage(ChromeDriver newDriver) {
-        driver = newDriver;
+    public HomePage() {
+        this.driver = DriverSingleton.getDriver();
     }
 
     public HomePage acceptCookieButton() {

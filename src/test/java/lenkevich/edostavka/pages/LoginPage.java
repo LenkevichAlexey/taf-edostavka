@@ -31,8 +31,8 @@ public class LoginPage {
     String textResultUsingOnlyIncorrectPhone = "//*[@id='phone']/div[2]/div/div";
     String textResultUsingIncorrectDataForgotPassword = "//*[@id='__next']/div[2]/div/div[1]/div[2]/div/div[1]/div[3]/div[3]/div/div/div";
 
-    public LoginPage(ChromeDriver newDriver) {
-        driver = newDriver;
+    public LoginPage() {
+        this.driver = DriverSingleton.getDriver();
     }
 
     public LoginPage clickLoginButton() {

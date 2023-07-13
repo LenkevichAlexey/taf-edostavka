@@ -10,11 +10,11 @@ public class EdostavkaStep {
     HomePage homePage;
     RegistrationPage registrationPage;
 
-    public EdostavkaStep(ChromeDriver driver) {
+    public EdostavkaStep() {
 
-        loginPage = new LoginPage(driver);
-        homePage = new HomePage(driver);
-        registrationPage = new RegistrationPage(driver);
+        loginPage = new LoginPage();
+        homePage = new HomePage();
+        registrationPage = new RegistrationPage();
     }
 
     public void phoneInputFieldPlaceholderText() {

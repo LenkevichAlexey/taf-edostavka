@@ -24,8 +24,8 @@ public class RegistrationPage {
     String textResultUsingIncorrectPhone = "//*[@id='__next']/div[2]/div/div[1]/div[2]/div[2]/div[3]/div";
     String textResultUsingInvalidCharacters = "//*[@id='__next']/div[2]/div/div[1]/div[2]/div[2]/div[3]/div/div";
 
-    public RegistrationPage(ChromeDriver newDriver) {
-        driver = newDriver;
+    public RegistrationPage() {
+        this.driver = DriverSingleton.getDriver();
     }
 
     public RegistrationPage clickRegistrationOnlyOnEdostavkaButton() {
