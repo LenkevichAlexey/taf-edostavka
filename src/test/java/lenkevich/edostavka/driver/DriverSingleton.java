@@ -1,4 +1,4 @@
-package lenkevich.edostavka.pages;
+package lenkevich.edostavka.driver;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 

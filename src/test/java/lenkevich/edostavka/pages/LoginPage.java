@@ -1,5 +1,6 @@
 package lenkevich.edostavka.pages;
 
+import lenkevich.edostavka.driver.DriverSingleton;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;

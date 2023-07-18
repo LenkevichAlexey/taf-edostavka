@@ -1,41 +1,29 @@
 package lenkevich.edostavka.tests;
 
 import io.restassured.response.ValidatableResponse;
+import lenkevich.edostavka.domain.Domain;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import javax.xml.bind.ValidationEvent;
-import java.time.temporal.ValueRange;
 import java.util.HashMap;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.equalTo;
 
 public class RestTest {
 
+    Domain po = new Domain();
+
     @Test
     public void testInvalidCreds() {
-        String url = "https://api.static.edostavka.by/rest/Json";
-        String body = "{\n" +
-                "    \"CRC\": \"\",\n" +
-                "    \"Packet\": {\n" +
-                "        \"JWT\": null,\n" +
-                "        \"MethodName\": \"GetJWT\",\n" +
-                "        \"ServiceNumber\": \"01093ABC-6B36-450D-8FAF-EA32BCC2EAE8\",\n" +
-                "        \"Data\": {\n" +
-                "            \"LoginName\": \"375296550009\",\n" +
-                "            \"Password\": \"1q2w3e4r\",\n" +
-                "            \"LoginNameTypeId\": 2,\n" +
-                "            \"SourceName\": \"edostavka.by\",\n" +
-                "            \"UUID\": \"54d97ed9-ad81-4006-b7e6-811fbe4a993a\",\n" +
-                "            \"UserAgent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36\",\n" +
-                "            \"IpAddress\": \"86.57.143.244\"\n" +
-                "        }\n" +
-                "    }\n" +
-                "}";
-        given().body(body).when().post(url).then().log().body().
-                assertThat().statusCode(200).
-                assertThat().body(containsString("{\"Table\":[{\"Error\":\"50009\",\"ErrorDescription\":\"Неверный логин или пароль\"}]}"));
+
+        //RestAssured.registerParser("text/plain", Parser.JSON);
+        given().headers(po.getHeaders()).body(po.getFormParams())
+                .when().post(po.endPoint).then().log().all()
+                .assertThat().statusCode(200)
+                .body("Error", equalTo("50009"))
+                .body("ErrorDescription", equalTo("Неверный логин или пароль"));
     }
 
     @Test

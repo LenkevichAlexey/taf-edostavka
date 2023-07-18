@@ -3,7 +3,6 @@ package lenkevich.edostavka.steps;
 import lenkevich.edostavka.pages.HomePage;
 import lenkevich.edostavka.pages.LoginPage;
 import lenkevich.edostavka.pages.RegistrationPage;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class EdostavkaStep {
     LoginPage loginPage;
@@ -19,8 +18,7 @@ public class EdostavkaStep {
 
     public void phoneInputFieldPlaceholderText() {
         homePage.acceptCookieButton();
-        loginPage
-                .clickLoginButton();
+        loginPage.clickLoginButton();
     }
 
     public void passwordInputFieldPlaceholderText() {

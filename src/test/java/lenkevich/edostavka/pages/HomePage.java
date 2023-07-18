@@ -1,5 +1,6 @@
 package lenkevich.edostavka.pages;
 
+import lenkevich.edostavka.driver.DriverSingleton;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -163,8 +164,6 @@ public class HomePage {
         driver.findElement(By.xpath(catalogItemLocator)).click();
         return this;
     }
-
-
 
 
     public String getResultTextStockPage() {

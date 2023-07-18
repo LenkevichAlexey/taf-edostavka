@@ -1,6 +1,6 @@
 package lenkevich.edostavka.pages;
 
-import org.junit.jupiter.api.BeforeAll;
+import lenkevich.edostavka.driver.DriverSingleton;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -87,8 +87,6 @@ public class RegistrationPage {
         driver.findElement(By.xpath(createAccountButtonLocator)).click();
         return this;
     }
-
-
 
 
     public String getResultTextUsingIncorrectPhoneInRegistrationFlow() {
