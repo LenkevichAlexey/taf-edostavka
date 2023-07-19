@@ -1,5 +1,7 @@
 package lenkevich.edostavka.tests;
 
+import io.restassured.RestAssured;
+import io.restassured.parsing.Parser;
 import io.restassured.response.ValidatableResponse;
 import lenkevich.edostavka.domain.Domain;
 import org.junit.jupiter.api.Assertions;
@@ -17,13 +19,12 @@ public class RestTest {
 
     @Test
     public void testInvalidCreds() {
-
-        //RestAssured.registerParser("text/plain", Parser.JSON);
-        given().headers(po.getHeaders()).body(po.getFormParams())
+        RestAssured.registerParser("text/plain", Parser.JSON);
+        given().headers(po.getHeaders()).body(po.getRequestBody())
                 .when().post(po.endPoint).then().log().all()
                 .assertThat().statusCode(200)
-                .body("Error", equalTo("50009"))
-                .body("ErrorDescription", equalTo("Неверный логин или пароль"));
+                .body("Table[0].Error", equalTo(50009))
+                .body("Table[0].ErrorDescription", equalTo("Неверный логин или пароль"));
     }
 
     @Test

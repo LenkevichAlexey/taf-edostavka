@@ -1,5 +1,7 @@
 package lenkevich.edostavka.domain;
 
+import com.google.gson.Gson;
+
 import java.util.HashMap;
 
 public class Domain {
@@ -9,7 +11,7 @@ public class Domain {
     public HashMap<String, String> getHeaders() {
 
         HashMap<String, String> headers = new HashMap<>();
-        headers.put("Content-Type", "text/plain; charset=UTF-8");
+        headers.put("Content-Type", "application/json; charset=UTF-8");
         return headers;
 
     }
@@ -36,7 +38,12 @@ public class Domain {
         HashMap<String, Object> formParams = new HashMap<>();
         formParams.put("CRC", "");
         formParams.put("Packet", packet);
-
         return formParams;
+    }
+    
+    public String getRequestBody() {
+        HashMap<String, Object> formParams = getFormParams();
+        Gson gson = new Gson();
+        return gson.toJson(formParams);
     }
 }
