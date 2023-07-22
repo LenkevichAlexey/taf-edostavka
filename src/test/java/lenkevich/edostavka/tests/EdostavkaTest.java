@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 
-public class EdostavkaTest extends BaseTestsEdostavka {
+public class    EdostavkaTest extends BaseTestsEdostavka {
 
     @Test
     public void testPhoneInputFieldPlaceholderText() {
