@@ -1,6 +1,6 @@
 package lenkevich.edostavka.pages;
 
-import  lenkevich.edostavka.driver.DriverSingleton;
+import lenkevich.edostavka.driver.DriverSingleton;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -105,9 +105,6 @@ public class LoginPage {
         driver.findElement(By.xpath(createAccountButtonLocator)).click();
         return this;
     }
-
-
-
 
 
     public String getPhoneInputFieldPlaceholderText() {

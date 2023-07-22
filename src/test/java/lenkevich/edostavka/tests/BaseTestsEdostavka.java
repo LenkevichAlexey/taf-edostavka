@@ -1,9 +1,11 @@
 package lenkevich.edostavka.tests;
 
+import lenkevich.edostavka.driver.DriverSingleton;
 import lenkevich.edostavka.pages.HomePage;
 import lenkevich.edostavka.pages.LoginPage;
 import lenkevich.edostavka.pages.RegistrationPage;
 import lenkevich.edostavka.steps.EdostavkaStep;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
 public class BaseTestsEdostavka {
@@ -20,8 +22,8 @@ public class BaseTestsEdostavka {
         registrationPage = new RegistrationPage();
     }
 
-  /*@AfterEach
+    @AfterEach
     public void tearsDown() {
         DriverSingleton.quit();
-    }*/
+    }
 }

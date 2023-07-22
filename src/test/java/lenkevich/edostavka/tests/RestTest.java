@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 import java.util.HashMap;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
 
 public class RestTest {

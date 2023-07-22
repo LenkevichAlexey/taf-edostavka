@@ -40,7 +40,7 @@ public class Domain {
         formParams.put("Packet", packet);
         return formParams;
     }
-    
+
     public String getRequestBodyWithInvalidCreds() {
         HashMap<String, Object> formParams = getFormParamsWithInvalidCreds();
         Gson gson = new Gson();

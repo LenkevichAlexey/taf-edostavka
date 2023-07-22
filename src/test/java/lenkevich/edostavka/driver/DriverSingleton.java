@@ -9,7 +9,7 @@ public class DriverSingleton {
     private static ChromeDriver driver;
 
     public static ChromeDriver getDriver() {
-        if (driver == null){
+        if (driver == null) {
             driver = new ChromeDriver();
             driver.get("https://edostavka.by/");
             driver.manage().window().maximize();
@@ -19,12 +19,12 @@ public class DriverSingleton {
         return driver;
     }
 
-    private DriverSingleton(){
+    private DriverSingleton() {
 
     }
 
-    public  static void quit(){
-        if(driver != null){
+    public static void quit() {
+        if (driver != null) {
             driver.quit();
         }
     }
