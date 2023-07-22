@@ -19,7 +19,7 @@ public class HomePage {
     String diapersMenuLocator = "//a[@class='links_links__a__NX2VY' and text()='Подгузники']";
     String searchFieldLocator = "//*[@id='main_search_field']/div/div/form/input";
     String searchButtonLocator = "//*[@id='main_search_field']/div/div/form/button[1]";
-    String addItemToCartLocator = "//*[@id='__next']/div[2]/div/div[2]/div/div[2]/div[3]/div/div[1]/div[5]/div/button";
+    String addItemToCartLocator = "//*[@id='__next']/div[2]/div/div[2]/div/div[2]/div[2]/div/div[1]/div[5]/div/button";
     String catalogItemLocator = "//*[@id='header__inner']/div[1]/div[2]/div[1]/div[1]/button";
     String cityFieldInModalLocator = "//input[@id='input_city' and following-sibling::label[text()='Населенный  пункт']]";
     String confirmCityFieldInModalLocator = "//button[@id='0-simple-bar' and text()='г. Минск']";
@@ -43,8 +43,8 @@ public class HomePage {
     String textResultSearchField = "//h1[@class='typography typography_tag_h1 typography_weight_600 heading_heading__text__gP6AN heading_heading__text_level_1__7_duQ' and text()='Молоко']";
     String textResultDeliveryAddress = "/html/body/div[5]/div/div[2]/div/div/div[1]/span";
     String expandedCatalogMenu = "//*[@id='nav-icon6']";
-    String textResultAddMilkToCart = "//a[@class='product_name__Ogv_q' and text()='Молоко «#Можно» без\u00ADлак\u00ADтоз\u00ADное, 3.2%']";
-    String textResultAddItemViaPlus = "//*[@id='__next']/div[3]/div[2]/section/div[1]/div[2]/div/div[1]/div[2]/div/div/div/ul/li/div/div/div[2]/span/div/span";
+    String textResultAddMilkToCart = "//a[@class='product_name__Ogv_q' and text()='Молоко топ\u00ADлё\u00ADное «Мо\u00ADлоч\u00ADный мир» 3.2%']";
+    String textResultAddItemViaPlus = "//*[@id='__next']/div[3]/div[2]/section/div[1]/div[2]/div/div[1]/div[2]/div/div/div/ul/li/div/div/div/span/div/span";
 
     public HomePage() {
         this.driver = DriverSingleton.getDriver();

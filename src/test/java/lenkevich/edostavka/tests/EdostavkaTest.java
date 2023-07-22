@@ -155,7 +155,7 @@ public class EdostavkaTest extends BaseTestsEdostavka {
     public void testSearchFunctionality() {
         edostavkaStep.findItemInSearchField();
         String actualResult = homePage.getResultTextSearchField();
-        Assertions.assertEquals("По запросу «Молоко» найдено 429 товаров", actualResult);
+        Assertions.assertEquals("По запросу «Молоко» найдено 218 товаров", actualResult);
 
     }
 
@@ -170,7 +170,7 @@ public class EdostavkaTest extends BaseTestsEdostavka {
     public void testAddingItemToCartViaPlus() {
         edostavkaStep.addItemToCartAndMultiply();
         String actualResult = homePage.getResultTextAddMilkUsingPlusInCart();
-        Assertions.assertEquals("2,43 р. за шт", actualResult);
+        Assertions.assertEquals("1,23 р. за шт", actualResult);
     }
 
     @Test
